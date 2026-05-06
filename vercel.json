@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/index.py"
+    }
+  ],
+  "env": {
+    "BOT_TOKEN":        "@bot_token",
+    "BOT_USERNAME":     "@bot_username",
+    "REDIS_URL":        "@redis_url",
+    "ADMIN_ID":         "@admin_id",
+    "BASE_URL":         "@base_url",
+    "WEBHOOK_SECRET":   "@webhook_secret",
+    "DEFAULT_CHANNEL_ID": "@default_channel_id"
+  }
+}
